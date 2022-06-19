@@ -2,7 +2,10 @@ const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
 mongoose.connect("mongodb+srv://Abhi_mann:L2E4Q7cFPzb0yIvg@dsaclustor.zakf1ny.mongodb.net/DsaDB",{useNewUrlParser:true});
-
+const cors=require('cors');
+app.use(cors({
+    origin: "*",
+}))
 const DsaSchema=new mongoose.Schema({
     topic:String,
     links:{
