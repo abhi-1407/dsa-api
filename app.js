@@ -1,11 +1,15 @@
 const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
-mongoose.connect("mongodb+srv://Abhi_mann:L2E4Q7cFPzb0yIvg@dsaclustor.zakf1ny.mongodb.net/DsaDB",{useNewUrlParser:true});
+
 const cors=require('cors');
+require('dotenv').config();
+let apiKey=process.env.API_KEY;
+mongoose.connect("mongodb+srv://"+apiKey+"@dsaclustor.zakf1ny.mongodb.net/DsaDB",{useNewUrlParser:true});
 app.use(cors({
     origin: "*",
-}))
+}));
+let api_key=process.env.API_KEY;
 const DsaSchema=new mongoose.Schema({
     topic:String,
     links:{
